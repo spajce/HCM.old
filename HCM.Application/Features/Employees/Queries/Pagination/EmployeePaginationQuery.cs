@@ -1,7 +1,4 @@
-﻿
-using HCM.Application.Repositories.Employees;
-using HCM.Application.Services.Employees;
-using HCM.Common.Models.Employees;
+﻿using HCM.Application.Services.Employees;
 
 namespace HCM.Application.Features.Employees.Queries.Pagination;
 

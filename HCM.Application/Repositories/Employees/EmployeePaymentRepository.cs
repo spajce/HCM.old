@@ -1,4 +1,4 @@
-﻿namespace HCM.Application.Repositories.EmployeePayments;
+﻿namespace HCM.Application.Repositories.Employees;
 
 public interface IEmployeePaymentRepository
 {

@@ -1,4 +1,4 @@
-﻿namespace HCM.Application.Repositories.EmployeeJobs;
+﻿namespace HCM.Application.Repositories.Employees;
 
 public interface IEmployeeJobRepository
 {

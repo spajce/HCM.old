@@ -1,9 +1,5 @@
-﻿using HCM.Common.Models;
-using HCM.Application.Features.Employees.Queries.Pagination;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using HCM.Common.Models.Employees;
-using HCM.Application.Features.Employees.Queries.Commands;
+﻿using HCM.Application.Features.Employees.Queries.Pagination;
+using HCM.Application.Features.Employees.Commands;
 
 namespace HCMServer.Apis.V1.Controllers.Employees
 {

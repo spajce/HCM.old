@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using HCM.Application.Common.Extensions;
 using HCM.Application.Common.Models;
-using HCM.Application.Features.Employees.Queries.Commands;
+using HCM.Application.Features.Employees.Commands;
 using HCM.Application.Features.Employees.Queries.Pagination;
 using HCM.Common.Models;
 using HCM.Common.Models.Employees;

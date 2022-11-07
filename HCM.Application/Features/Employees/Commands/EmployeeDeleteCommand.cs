@@ -1,18 +1,17 @@
 ﻿using HCM.Application.Services.Employees;
-using HCM.Common.Models.Employees;
 
-namespace HCM.Application.Features.Employees.Queries.Commands;
+namespace HCM.Application.Features.Employees.Commands;
 
 public class EmployeeDeleteCommand : IRequest<bool>
 {
     public int[] Ids { get; set; }
 }
 
-public class DeleteEmployeeCommandHandler : IRequestHandler<EmployeeDeleteCommand, bool>
+public class EmployeeDeleteCommandHandler : IRequestHandler<EmployeeDeleteCommand, bool>
 {
     private readonly IEmployeeService _service;
 
-    public DeleteEmployeeCommandHandler(IEmployeeService service)
+    public EmployeeDeleteCommandHandler(IEmployeeService service)
     {
         _service = service;
     }

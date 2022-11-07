@@ -1,0 +1,22 @@
+﻿using HCM.Application.Services.Jobs;
+
+namespace HCM.Application.Features.JobPositions.Commands;
+
+public class JobPositionPostCommand : JobPositionModel, IRequest<JobPositionModel>
+{
+}
+
+public class JobPositionPostCommandHandler : IRequestHandler<JobPositionPostCommand, JobPositionModel>
+{
+    private readonly IJobPositionService _service;
+
+    public JobPositionPostCommandHandler(IJobPositionService service)
+    {
+        _service = service;
+    }
+
+    public async Task<JobPositionModel> Handle(JobPositionPostCommand request, CancellationToken cancellationToken)
+    {
+        return await _service.PostAsync(request);
+    }
+}

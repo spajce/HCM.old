@@ -302,21 +302,21 @@ try
     #endregion
 
 
-    builder.Services.Scan(scan => scan
-          .FromAssemblyOf<IEmployeeService>() // Startup Interface
+    //builder.Services.Scan(scan => scan
+    //      .FromAssemblyOf<IEmployeeService>() // Startup Interface
 
-          .AddClasses(classes => classes.AssignableTo<IEmployeeService>())
-          .AsMatchingInterface()
-          .WithScopedLifetime()
+    //      .AddClasses(classes => classes.AssignableTo<IEmployeeService>())
+    //      .AsMatchingInterface()
+    //      .WithScopedLifetime()
 
-          .AddClasses(classes => classes.AssignableTo<IAuditRepository>())
-          .AsMatchingInterface()
-          .WithScopedLifetime()
+    //      .AddClasses(classes => classes.AssignableTo<IAuditRepository>())
+    //      .AsMatchingInterface()
+    //      .WithScopedLifetime()
 
-          .AddClasses(classes => classes.AssignableTo<IEmployeeRepository>())
-          .AsMatchingInterface()
-          .WithScopedLifetime()
-    );
+    //      .AddClasses(classes => classes.AssignableTo<IEmployeeRepository>())
+    //      .AsMatchingInterface()
+    //      .WithScopedLifetime()
+    //);
 
     builder.Services.AddApplicationServices();
 

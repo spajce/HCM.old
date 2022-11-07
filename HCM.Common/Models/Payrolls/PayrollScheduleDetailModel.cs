@@ -3,7 +3,7 @@ using System;
 
 namespace HCM.Common.Models.Payrolls
 {
-    public partial class PayrollScheduleDetailModel : BaseModel
+    public class PayrollScheduleDetailModel : BaseModel
     {
         public int IdPayrollScheduleDetail { get; set; }
         public DateTime? DateStart { get; set; }

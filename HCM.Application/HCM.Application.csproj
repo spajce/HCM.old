@@ -26,9 +26,6 @@
 	
 	<ItemGroup>
 	  <Folder Include="Common\Interface\" />
-	  <Folder Include="Repositories\Jobs\" />
-	  <Folder Include="Repositories\Payrolls\" />
-	  <Folder Include="Repositories\Payments\" />
 	</ItemGroup>
 	
 	<ItemGroup>

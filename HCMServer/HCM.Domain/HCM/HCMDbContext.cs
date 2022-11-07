@@ -8,10 +8,6 @@ namespace HCM.Domain
 {
     public partial class HCMDbContext : DbContext
     {
-        public HCMDbContext()
-        {
-        }
-
         public HCMDbContext(DbContextOptions<HCMDbContext> options)
             : base(options)
         {

@@ -1,5 +1,4 @@
 ﻿using HCM.Application.Repositories.Employees;
-using HCM.Common.Models.Employees;
 
 namespace HCM.Application.Services.Employees;
 
@@ -31,9 +30,7 @@ public class EmployeeService : IEmployeeService
 
         var dto = _mapper.Map<EmployeeDto>(o);
 
-        int id = await _repository.PostAsync(dto);
-
-        o.Id = id;
+        o.Id = await _repository.PostAsync(dto);
         o.CreateBy = dto.CreateBy;
         o.CreateAt = dto.CreateAt;
 

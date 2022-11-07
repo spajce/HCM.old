@@ -1,7 +1,6 @@
 ﻿using HCM.Application.Services.Employees;
-using HCM.Common.Models.Employees;
 
-namespace HCM.Application.Features.Employees.Queries.Commands;
+namespace HCM.Application.Features.Employees.Commands;
 
 public class EmployeePutCommand : EmployeeModel, IRequest<EmployeeModel>
 {

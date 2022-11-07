@@ -16,10 +16,11 @@ public static class DependencyInjection
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddMediatR(Assembly.GetExecutingAssembly());
 
-        //services.AddScoped<IAuditRepository, AuditRepository>();
-        //services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.Scan(scan =>
+                        scan.FromCallingAssembly()
+                        .AddClasses()
+                        .AsMatchingInterface());
 
-        
         return services;
     }
    

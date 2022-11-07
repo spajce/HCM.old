@@ -1,4 +1,5 @@
 using System;
+using HCM.Common.Models.Jobs;
 using HCM.Models.Base;
 
 namespace HCM.Common.Models.Employees
@@ -7,7 +8,7 @@ namespace HCM.Common.Models.Employees
     {
         public DateTime? EffectiveDate { get; set; }
         public decimal? BasePay { get; set; }
-        public string BasePayType { get; set; }
+        public JobBasePayType? JobBasePayType { get; set; }
         public int? TotalWorkingDays { get; set; }
         public int? IdEmployee { get; set; }
         public int? IdJobPosition { get; set; }
