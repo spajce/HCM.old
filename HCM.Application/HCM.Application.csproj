@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);1591;CS8618;CS8669;CS8602</NoWarn>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="FluentValidation" Version="11.2.2" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
+		<PackageReference Include="LazyCache" Version="2.4.0" />
+		<PackageReference Include="LazyCache.AspNetCore" Version="2.4.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.10" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="6.0.10" />
+		<PackageReference Include="Scrutor" Version="4.2.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.20" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Folder Include="Common\Interface\" />
+	  <Folder Include="Repositories\Jobs\" />
+	  <Folder Include="Repositories\Payrolls\" />
+	  <Folder Include="Repositories\Payments\" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\HCM.Common\HCM.Common.csproj" />
+	  <ProjectReference Include="..\HCMServer\HCM.Domain\HCM.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Z.EntityFramework.Extensions.EFCore">
+		  <HintPath>..\..\..\..\AssortedAssemblies\z.entityframework.extensions.efcore.6.13.3\lib\net6.0\clean-version\Z.EntityFramework.Extensions.EFCore.dll</HintPath>
+		</Reference>
+		<Reference Include="Z.EntityFramework.Plus.EFCore">
+			<HintPath>..\..\..\..\AssortedAssemblies\z.entityframework.plus.efcore.6.13.0\lib\net6.0\Z.EntityFramework.Plus.EFCore.dll</HintPath>
+		</Reference>
+		<Reference Include="Z.Expressions.Eval">
+			<HintPath>..\..\..\..\AssortedAssemblies\z.expressions.eval.4.0.66\lib\net6.0\Z.Expressions.Eval.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+</Project>

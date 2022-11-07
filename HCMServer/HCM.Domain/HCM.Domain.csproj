@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);1591;CS8618;CS8669</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.20" />
+		<PackageReference Include="Mapster" Version="7.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Z.EntityFramework.Extensions.EFCore">
+			<HintPath>..\..\..\..\..\AssortedAssemblies\z.entityframework.extensions.efcore.6.13.3\lib\net6.0\clean-version\Z.EntityFramework.Extensions.EFCore.dll</HintPath>
+		</Reference>
+		<Reference Include="Z.EntityFramework.Plus.EFCore">
+			<HintPath>..\..\..\..\..\AssortedAssemblies\z.entityframework.plus.efcore.6.13.0\lib\net6.0\Z.EntityFramework.Plus.EFCore.dll</HintPath>
+		</Reference>
+		<Reference Include="Z.Expressions.Eval">
+			<HintPath>..\..\..\..\..\AssortedAssemblies\z.expressions.eval.4.0.66\lib\net6.0\Z.Expressions.Eval.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<!--<ItemGroup>
+		<Generated Include="**\*.g.cs" />
+	</ItemGroup>
+
+	<Target Name="Mapster" AfterTargets="AfterBuild">
+		<Exec WorkingDirectory="$(ProjectDir)" Command="dotnet tool restore" />
+		<Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster model -a &quot;$(TargetDir)$(ProjectName).dll&quot; -n HCM.Domain.DTOs" />
+		
+	<Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster extension -a &quot;$(TargetDir)$(ProjectName).dll&quot;" />
+	
+		
+	<Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster mapper -a &quot;$(TargetDir)$(ProjectName).dll&quot;" />
+	
+
+	</Target>
+
+	<Target Name="CleanGenerated">
+		<Delete Files="@(Generated)" />
+	</Target>-->
+
+</Project>
