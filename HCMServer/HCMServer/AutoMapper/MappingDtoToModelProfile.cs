@@ -8,6 +8,8 @@ public class MappingDtoToModelProfile : Profile
 {
     public MappingDtoToModelProfile()
     {
+        //CreateMap<Result, ResultModel>();
+
         // Employee
         CreateMap<EmployeeModel, EmployeeDto>().ForMember(dest => dest.IdEmployee, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate.ToDateOnly()))

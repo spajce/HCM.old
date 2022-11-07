@@ -3,11 +3,11 @@ using HCM.Application.Services.Payments;
 
 namespace HCM.Application.Features.Payments.Queries;
 
-public class GetAllPaymentParticularQuery : IRequest<IEnumerable<PaymentParticularModel>>
+public class GetPaymentParticularsQuery : IRequest<IEnumerable<PaymentParticularModel>>
 {
 }
 
-public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetAllPaymentParticularQuery, IEnumerable<PaymentParticularModel>>
+public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetPaymentParticularsQuery, IEnumerable<PaymentParticularModel>>
 {
     private readonly IPaymentParticularService _service;
 
@@ -16,7 +16,7 @@ public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetAllPaymentPar
         _service = service;
     }
 
-    public async Task<IEnumerable<PaymentParticularModel>> Handle(GetAllPaymentParticularQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<PaymentParticularModel>> Handle(GetPaymentParticularsQuery request, CancellationToken cancellationToken)
     {
         return await _service.GetAsync();
     }

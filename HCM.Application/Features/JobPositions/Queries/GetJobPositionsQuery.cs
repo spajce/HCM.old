@@ -2,11 +2,11 @@
 
 namespace HCM.Application.Features.JobPositions.Queries;
 
-public class GetAllJobPositionQuery : IRequest<IEnumerable<JobPositionModel>>
+public class GetJobPositionsQuery : IRequest<IEnumerable<JobPositionModel>>
 {
 }
 
-public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetAllJobPositionQuery, IEnumerable<JobPositionModel>>
+public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetJobPositionsQuery, IEnumerable<JobPositionModel>>
 {
     private readonly IJobPositionService _service;
 
@@ -15,7 +15,7 @@ public class GetAllJobPositionPutQueryHandler : IRequestHandler<GetAllJobPositio
         _service = service;
     }
 
-    public async Task<IEnumerable<JobPositionModel>> Handle(GetAllJobPositionQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<JobPositionModel>> Handle(GetJobPositionsQuery request, CancellationToken cancellationToken)
     {
         return await _service.GetAsync();
     }

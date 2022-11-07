@@ -2,11 +2,11 @@
 
 namespace HCM.Application.Features.JobPositions.Commands;
 
-public class JobPositionPostCommand : JobPositionModel, IRequest<JobPositionModel>
+public class JobPositionPostCommand : JobPositionModel, IRequest<ResultModel<JobPositionModel>>
 {
 }
 
-public class JobPositionPostCommandHandler : IRequestHandler<JobPositionPostCommand, JobPositionModel>
+public class JobPositionPostCommandHandler : IRequestHandler<JobPositionPostCommand, ResultModel<JobPositionModel>>
 {
     private readonly IJobPositionService _service;
 
@@ -15,7 +15,7 @@ public class JobPositionPostCommandHandler : IRequestHandler<JobPositionPostComm
         _service = service;
     }
 
-    public async Task<JobPositionModel> Handle(JobPositionPostCommand request, CancellationToken cancellationToken)
+    public async Task<ResultModel<JobPositionModel>> Handle(JobPositionPostCommand request, CancellationToken cancellationToken)
     {
         return await _service.PostAsync(request);
     }

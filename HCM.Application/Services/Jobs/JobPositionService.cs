@@ -4,8 +4,8 @@ namespace HCM.Application.Services.Jobs;
 
 public interface IJobPositionService
 {
-    Task<JobPositionModel> PostAsync(JobPositionModel o);
-    Task<JobPositionModel> PutAsync(int id, JobPositionModel o);
+    Task<ResultModel<JobPositionModel>> PostAsync(JobPositionModel o);
+    Task<ResultModel<JobPositionModel>> PutAsync(int id, JobPositionModel o);
     Task DeleteAsync(int[] id);
     Task<IEnumerable<JobPositionModel>> GetAsync();
 }
@@ -22,22 +22,22 @@ public class JobPositionService : IJobPositionService
         _mapper = mapper;
     }
 
-    public async Task<JobPositionModel> PostAsync(JobPositionModel o)
+    public async Task<ResultModel<JobPositionModel>> PostAsync(JobPositionModel o)
     {
         var dto = _mapper.Map<JobPositionDto>(o);
 
         o.Id = await _repository.PostAsync(dto);
 
-        return o;
+        return ResultModel<JobPositionModel>.Success(o);
     }
 
-    public async Task<JobPositionModel> PutAsync(int id, JobPositionModel o)
+    public async Task<ResultModel<JobPositionModel>> PutAsync(int id, JobPositionModel o)
     {
         var dto = _mapper.Map<JobPositionDto>(o);
 
         await _repository.PutAsync(id, dto);
 
-        return o;
+        return ResultModel<JobPositionModel>.Success(o);
     }
 
     public async Task DeleteAsync(int[] ids)

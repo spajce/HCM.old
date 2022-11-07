@@ -67,7 +67,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Apis\V1\Controllers\Jobs\" />
       <Folder Include="Apis\V1\Controllers\Payrolls\" />
       <Folder Include="Apis\V1\Controllers\Payments\" />
     </ItemGroup>
