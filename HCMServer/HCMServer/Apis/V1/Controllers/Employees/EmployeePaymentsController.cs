@@ -1,4 +1,4 @@
-﻿namespace HCMServer.Apis.V1.Controllers.EmployeeJobs;
+﻿namespace HCMServer.Apis.V1.Controllers.Employees;
 
 [ApiController]
 [ApiVersion("1.0")]

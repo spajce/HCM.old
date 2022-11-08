@@ -66,9 +66,4 @@
         </Reference>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Apis\V1\Controllers\Payrolls\" />
-      <Folder Include="Apis\V1\Controllers\Payments\" />
-    </ItemGroup>
-
 </Project>

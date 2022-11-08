@@ -27,7 +27,7 @@ public class MappingModelToRequestProfile : Profile
 
         CreateMap<JobPositionParentModel, JobPositionParentPostCommand>();
         CreateMap<JobPositionParentModel, JobPositionParentPutCommand>();
-        CreateMap<JobPositionParentModel, GetPositionParentsQuery>();
+        CreateMap<JobPositionParentModel, GetJobPositionParentsQuery>();
 
         CreateMap<JobPositionModel, JobPositionPostCommand>();
         CreateMap<JobPositionModel, JobPositionPutCommand>();

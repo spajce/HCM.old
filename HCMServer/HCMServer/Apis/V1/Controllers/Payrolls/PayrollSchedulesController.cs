@@ -1,26 +1,23 @@
-﻿namespace HCMServer.Apis.V1.Controllers.Employees;
+﻿namespace HCMServer.Apis.V1.Controllers.Payrolls;
 
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class EmployeePaymentsController : ControllerBase
+public class PayrollSchedulesController : ControllerBase
 {
     private readonly ISender _mediator;
     private readonly IMapper _mapper;
 
-    public EmployeePaymentsController(ISender mediator, IMapper mapper)
+    public PayrollSchedulesController(ISender mediator, IMapper mapper)
     {
         _mediator = mediator;
         _mapper = mapper;
     }
 
-    [HttpGet("{idEmployee}")]
-    public async Task<IActionResult> GetAsync(int idEmployee)
+    [HttpGet]
+    public async Task<IActionResult> GetAsync()
     {
-        GetEmployeePaymentsByIdEmployeeQuery q = new GetEmployeePaymentsByIdEmployeeQuery
-        {
-            IdEmployee = idEmployee
-        };
+        GetPayrollSchedulesQuery q = new GetPayrollSchedulesQuery();
 
         var result = await _mediator.Send(q).ConfigureAwait(false);
 
@@ -28,21 +25,21 @@ public class EmployeePaymentsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync(EmployeePaymentModel o)
+    public async Task<IActionResult> PostAsync(PayrollScheduleModel o)
     {
-        var command = _mapper.Map<EmployeePaymentPostCommand>(o);
+        var command = _mapper.Map<PayrollSchedulePostCommand>(o);
 
         var result = await _mediator.Send(command).ConfigureAwait(false);
         return Ok(result);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAsync(int id, EmployeePaymentModel o)
+    public async Task<IActionResult> PutAsync(int id, PayrollScheduleModel o)
     {
         if (id != o.Id)
             return BadRequest();
 
-        var command = _mapper.Map<EmployeePaymentPutCommand>(o);
+        var command = _mapper.Map<PayrollSchedulePutCommand>(o);
 
         var result = await _mediator.Send(command).ConfigureAwait(false);
 
@@ -52,7 +49,7 @@ public class EmployeePaymentsController : ControllerBase
     [HttpDelete("{ids}")]
     public async Task<IActionResult> DeleteAsync(int[] ids)
     {
-        var command = new EmployeePaymentDeleteCommand
+        var command = new PayrollScheduleDeleteCommand
         {
             Ids = ids
         };

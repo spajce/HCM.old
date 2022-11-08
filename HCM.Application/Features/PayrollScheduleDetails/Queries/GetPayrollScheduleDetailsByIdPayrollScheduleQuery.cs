@@ -4,7 +4,7 @@ namespace HCM.Application.Features.Payrolls.Queries;
 
 public class GetPayrollScheduleDetailsByIdPayrollScheduleQuery : IRequest<IEnumerable<PayrollScheduleDetailModel>>
 {
-    public int IdJobPayrollSchdule { get; set; }
+    public int IdPayrollSchedule { get; set; }
 }
 
 public class GetPayrollScheduleDetailsByIdPayrollScheduleQueryHandler : IRequestHandler<GetPayrollScheduleDetailsByIdPayrollScheduleQuery, IEnumerable<PayrollScheduleDetailModel>>
@@ -18,6 +18,6 @@ public class GetPayrollScheduleDetailsByIdPayrollScheduleQueryHandler : IRequest
 
     public async Task<IEnumerable<PayrollScheduleDetailModel>> Handle(GetPayrollScheduleDetailsByIdPayrollScheduleQuery request, CancellationToken cancellationToken)
     {
-        return await _service.GetAsync(request.IdJobPayrollSchdule);
+        return await _service.GetAsync(request.IdPayrollSchedule);
     }
 }

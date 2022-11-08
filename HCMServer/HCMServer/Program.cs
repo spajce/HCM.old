@@ -32,6 +32,7 @@ using HCM.Application;
 using HCM.Application.Repositories.Audits;
 using HCM.Application.Repositories.Employees;
 using HCM.Application.Services.Employees;
+using Microsoft.AspNetCore.Http;
 
 NLog.Logger logger;
 
@@ -400,6 +401,8 @@ try
                     return message.ToString();
                 }
 
+                var responseModel = await ResultModel.FailureAsync(new string[] { exception.Message });
+               
                 string message = exception switch
                 {
                     //AmazonS3Exception e => $"{e.Message}",
@@ -412,7 +415,9 @@ try
                     _ => $"Something Went Wrong!\n{exception?.Message}\n{exception?.StackTrace}",
                 };
 
-                await httpContext.Response.WriteAsync(message);
+                responseModel.Errors = new string[] { message };
+
+                await httpContext.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(responseModel));
 
             });
         });
@@ -461,7 +466,10 @@ try
                     }
                     return null;
                 }
-                
+
+                var responseModel = await ResultModel.FailureAsync(new string[] { exception.Message });
+
+
                 string message = exception switch
                 {
                     //AmazonS3Exception e => $"Error Code -7, {e.Message}",
@@ -478,7 +486,9 @@ try
                     _ => $"Error Code -1, Something Went Wrong!",
                 };
 
-                await httpContext.Response.WriteAsync(message);
+                responseModel.Errors = new string[] { message };
+
+                await httpContext.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(responseModel));
             });
         });
 
