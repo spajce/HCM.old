@@ -1,19 +1,14 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Reflection;
 using System.Text;
 using Audit.Domain;
-using AutoMapper;
 using HCM.Domain;
 using HCMServer.AutoMapper;
 using HCMServer.Helpers;
 using HCM.Application.Swagger;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
@@ -22,17 +17,11 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MySqlConnector;
-using NLog;
 using NLog.Web;
-using ProtoBuf.Meta;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using WebApiContrib.Core.Formatter.Protobuf;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 using HCM.Application;
-using HCM.Application.Repositories.Audits;
-using HCM.Application.Repositories.Employees;
-using HCM.Application.Services.Employees;
-using Microsoft.AspNetCore.Http;
 
 NLog.Logger logger;
 
