@@ -1,5 +1,11 @@
-﻿namespace HCMServer.Apis.V1.Controllers.Employees;
+﻿using System.Net;
+using System.Net.Mime;
+using HCMServer.SwaggerExamples;
+using Swashbuckle.AspNetCore.Filters;
 
+namespace HCMServer.Apis.V1.Controllers.Employees;
+
+[Produces("application/json")]
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
@@ -14,8 +20,16 @@ public class EmployeesController : ControllerBase
         _mapper = mapper;
     }
 
-    // GET: api/<EmployeesController>
+    /// <summary>
+    /// Get a list with "<see cref="EmployeeModel"/> employeees
+    /// </summary>
+    /// <param name="page"></param>
+    /// <returns>Returns a list of employeees</returns>
     [HttpPost("[action]")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedDataModel<EmployeeModel>))]
+    [SwaggerResponseExample(200, typeof(EmployeeResultExample))]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(InternalServerResponseExample))]
+    [SwaggerResponseExample(StatusCodes.Status500InternalServerError, typeof(InternalServerResponseExample))]
     public async Task<IActionResult> EmployeePaginationAsync(PaginationFilterModel page)
     {
         var query = _mapper.Map<EmployeePaginationQuery>(page);

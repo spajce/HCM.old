@@ -22,6 +22,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using WebApiContrib.Core.Formatter.Protobuf;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 using HCM.Application;
+using Swashbuckle.AspNetCore.Filters;
+using Microsoft.AspNetCore.Hosting;
+using ProtoBuf.Meta;
 
 NLog.Logger logger;
 
@@ -75,7 +78,12 @@ try
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    builder.Services.AddSwaggerGen(c =>
+    {
+        c.ExampleFilters();
+    });
+
+    builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 
     #region Content File Limit Config
     // REF: https://github.com/dotnet/aspnetcore/issues/20369#issuecomment-607057822
@@ -606,6 +614,7 @@ try
         endpoints.MapDefaultControllerRoute();
     });
 
+    //app.MapGet("/", () => "All Set!");
 
     app.Run();
 }
